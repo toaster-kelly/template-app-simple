@@ -41,13 +41,6 @@ html *::after {
 
 }
 
-/* Background */
-body {
-
-    background: rgb(37, 26, 48);
-
-}
-
 /* Old browser */
 .browsehappy {
 
