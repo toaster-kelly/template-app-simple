@@ -6,7 +6,7 @@ define([
     '_animation',
     '_baseObject',
 
-    './modules/_example'
+    '../modules/_example'
 
 ], function(
 
