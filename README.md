@@ -51,3 +51,4 @@ Run `webpack -p --config ./webpack.production.config.js`, which will create bund
 ##Features to add:
 - Improve build system to output minified `/dist` folder as a sibling to the main `app` folder. 
 - Add wepback Dashboard! https://github.com/FormidableLabs/webpack-dashboard
+- Replace jQuery for Zepto, add easy way to exclude altogether if not required
