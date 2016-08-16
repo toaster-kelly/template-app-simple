@@ -2,9 +2,9 @@
 
 ## Features
 - Frameworkless, only `jQuery` and `lodash` as required dependencies
-- OLOO style inheritance
-- Base object for common variables and hierarchy management
-- Dead simple build and live-reload setup using `webpack` and `webpack-dev-server`
+- Prototypal inheritance
+- Base object for common variables, trickling, and hierarchy management
+- Simple build and live-reload setup using `webpack` and `webpack-dev-server`
 - Basic SCSS scaffold, including normalize and critical CSS
 - Example modules for new children, matrix transforms, THREE.js, full-page shaders (THREE.js), and 2D canvas.
 
@@ -50,3 +50,4 @@ Run `webpack -p --config ./webpack.production.config.js`, which will create bund
 
 ##Features to add:
 - Improve build system to output minified `/dist` folder as a sibling to the main `app` folder. 
+- Add wepback Dashboard! https://github.com/FormidableLabs/webpack-dashboard
