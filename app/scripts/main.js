@@ -36,7 +36,6 @@ define([
 
             _.bindAll( this,
                 'onResize',
-                // 'onHashChange',
                 'onMouseMove',
                 'onAnimFrame'
             );
@@ -64,11 +63,6 @@ define([
 
             this.addEvents();
 
-            // Check for initial route
-            // if ( location.hash ) {
-            //     this.onHashChange();
-            // }
-
             this.onResize();
 
             // Start anim frame
@@ -92,8 +86,6 @@ define([
 
             this.$window.on( 'resize', this.onResize );
             this.$document.on( 'mousemove', this.onMouseMove );
-
-            // window.addEventListener( 'hashchange', this.onHashChange, false );
         },
 
 
@@ -111,20 +103,6 @@ define([
             this.pages.home.resize();
         },
 
-        // onHashChange: function () {
-
-        //     console.log('Hash change! new hash: ', location.hash);
-
-        //     var hash = location.hash;
-
-        //     switch(hash) {
-
-        //         default:
-        //             this.routeHome();
-        //             break;
-        //     }
-        // },
-
         onMouseMove: function (e) {
 
             this.mouseData.x = e.clientX;
@@ -140,17 +118,10 @@ define([
 
             var time = Date.now();
 
-            this.pages.home.animFrame(time);
+            this.pages.home.animFrame( time );
 
-            window.requestAnimationFrame(this.onAnimFrame);
-        },
-
-        // ROUTING -----------------------------------------------------
-
-        // routeHome: function () {
-
-        //     this.pages.home.routeHome();
-        // }
+            window.requestAnimationFrame( this.onAnimFrame );
+        }
 
     };
 

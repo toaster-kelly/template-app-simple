@@ -54,10 +54,6 @@ define([
             this.exampleChild.animFrame();
         }
 
-        // routeHome: function () {
-
-        // }
-
     });
 
 });
