@@ -72,7 +72,7 @@ define([
             this.onResize();
 
             // Start anim frame
-            window.requestAnimationFrame(this.onAnimFrame);
+            _.defer( function () { window.requestAnimationFrame( this.onAnimFrame ) }.bind( this ) );
         },
 
         createPages: function () {
