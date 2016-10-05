@@ -13,28 +13,3 @@ $z-index-top: 1000;
 // -------
 $purple: rgb(37, 26, 48);
 $mint: rgb(90, 244, 199);
-
-// Breakpoints
-// -----------
-// Mobile
-$bp-mobile-tiny-min: 0;
-$bp-mobile-tiny-max: 320px;
-$bp-mobile-small-min: $bp-mobile-tiny-max + 1;
-$bp-mobile-small-max: 360px;
-$bp-mobile-medium-min: $bp-mobile-small-max + 1;
-$bp-mobile-medium-max: 400px;
-$bp-mobile-large-min: $bp-mobile-medium-max + 1;
-$bp-mobile-large-max: 599px;
-// Tablet
-$bp-tablet-min: $bp-mobile-large-max + 1;
-$bp-tablet-max: 1024px;
-// Dekstop
-$bp-desktop-1280-min: $bp-tablet-max + 1;
-$bp-desktop-1280-max: 1280px;
-$bp-desktop-1440-min: $bp-desktop-1280-max + 1;
-$bp-desktop-1440-max: 1440px;
-$bp-desktop-1680-min: $bp-desktop-1440-max + 1;
-$bp-desktop-1680-max: 1680px;
-$bp-desktop-1920-min: $bp-desktop-1680-max + 1;
-$bp-desktop-1920-max: 1920px;
-$bp-desktop-large-min: $bp-desktop-1920-max + 1;
