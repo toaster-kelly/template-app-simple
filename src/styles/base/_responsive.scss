@@ -1,6 +1,6 @@
-/*
-    General breakpoints that cover most device sizes
-*/
+//
+// General breakpoints that cover most device sizes
+//
 
 // Mobile
 $bp-mobile-tiny-min: 0;
@@ -28,22 +28,22 @@ $bp-desktop-1920-max: 1920px;
 $bp-desktop-large-min: ( $bp-desktop-1920-max + 1 );
 
 
-/*
-    These mixins apply styles only when within the specified breakpoint
-    ---
-    1. Predefined breakpoints
-    2. Custom breakpoints for width
-    3. Custom breakpoints for height
-*/
+//
+//  These mixins apply styles only when within the specified breakpoint
+//  ---
+//  1. Predefined breakpoints
+//  2. Custom breakpoints for width
+//  3. Custom breakpoints for height
+//
 
-/*
-    1. Predefined breakpoints:
-    ---
-    USAGE:
-    @include breakpoint( desktop-1680 ) {
-        background: red;
-    }
-*/
+//
+//  1. Predefined breakpoints:
+//  ---
+//  USAGE:
+//  @include breakpoint( desktop-1680 ) {
+//      background: red;
+//  }
+//
 
 @mixin breakpoint( $point ) {
 
@@ -125,22 +125,23 @@ $bp-desktop-large-min: ( $bp-desktop-1920-max + 1 );
     }
 }
 
-/*
-    2. Custom breakpoints for width:
-    ---
-    USAGE:
-    @include breakpoint-width( @bp-desktop-1280-min, @bp-desktop-1920-min ) {
-        background: red;
-    });
+//
+//  2. Custom breakpoints for width:
+//  ---
+//  USAGE:
+//  @include breakpoint-width( @bp-desktop-1280-min, @bp-desktop-1920-min ) {
+//      background: red;
+//  });
 
-    @include breakpoint-width-min( 1280px ) {
-        background: green;
-    });
+//  @include breakpoint-width-min( 1280px ) {
+//      background: green;
+//  });
 
-    @include breakpoint-width-max( @bp-desktop-1440-max ) {
-        background: blue;
-    });
-*/
+//  @include breakpoint-width-max( @bp-desktop-1440-max ) {
+//      background: blue;
+//  });
+//
+
 // Min width and Max width
 @mixin breakpoint-width( $min, $max ) {
 
@@ -165,22 +166,23 @@ $bp-desktop-large-min: ( $bp-desktop-1920-max + 1 );
     }
 }
 
-/*
-    3. Custom breakpoints for height:
-    ---
-    USAGE:
-    .breakpoint-height( 600px, 700px, {
-        background: red;
-    });
+//
+//  3. Custom breakpoints for height:
+//  ---
+//  USAGE:
+//  .breakpoint-height( 600px, 700px, {
+//      background: red;
+//  });
 
-    .breakpoint-height-min( 1000px, {
-        background: green;
-    });
+//  .breakpoint-height-min( 1000px, {
+//      background: green;
+//  });
 
-    .breakpoint-height-max( 600px, {
-        background: blue;
-    });
-*/
+//  .breakpoint-height-max( 600px, {
+//      background: blue;
+//  });
+//
+
 // Min height and Max height
 @mixin breakpoint-height( $min, $max ) {
 

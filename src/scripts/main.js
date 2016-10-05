@@ -14,8 +14,6 @@ define([
 
 ) { 'use strict';
 
-    require('!style!css!sass!../styles/main.scss');
-
     var main = {
 
 
