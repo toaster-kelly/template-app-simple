@@ -1,128 +1,115 @@
-define([
+import _ from 'lodash';
+import $ from 'webpack-zepto';
 
-    'lodash',
-    'jquery',
+import HomePage from './pages/home_page';
 
-    './pages/home_page'
-
-], function(
-
-    _,
-    $,
-
-    HomePage
-
-) { 'use strict';
-
-    var main = {
+export default function () {
 
 
-        BASE_WIDTH : 1440,
+    const BASE_WIDTH = 1440;
 
-        $window    : null,
-        $document  : null,
-        $html      : null,
-        $root      : null,
+    let pages = null;
+    let ui = null;
+    let windowData = null;
+    let mouseData = null;
 
-        mouseData  : null,
-        windowData : null,
-
-        pages      : null,
+    start();
 
 
-        start: function() {
+    // Setup
+    // -----
 
-            _.bindAll( this,
-                'onResize',
-                'onMouseMove',
-                'onAnimFrame'
-            );
+    function start() {
 
-            this.$window = $(window);
-            this.$document = $(document);
-            this.$html = $(document.documentElement);
-            this.$root = $('.js-root');
+        ui = {
 
-            this.windowData = {
-                width: 0,
-                height: 0,
-                ratio: 0,
-                scale: 0
-            };
+            window   : $(window),
+            document : $(document),
+            html     : $(document.documentElement),
+            root     : $('.js-root')
+        };
 
-            this.mouseData = {
-                x: 0,
-                y: 0,
-                nX: 0,
-                nY: 0
-            };
+        windowData = {
 
-            this.createPages();
+            width: 0,
+            height: 0,
+            ratio: 0,
+            scale: 0
+        };
 
-            this.addEvents();
+        mouseData = {
 
-            this.onResize();
+            x: 0,
+            y: 0,
+            nX: 0,
+            nY: 0
+        };
 
-            // Start anim frame
-            _.defer( function () { window.requestAnimationFrame( this.onAnimFrame ) }.bind( this ) );
-        },
+        createPages();
+        addEvents();
+        onResize();
 
-        createPages: function () {
+        // Start anim frame
+        _.defer( function () { window.requestAnimationFrame( onAnimFrame ); }.bind( this ) );
+    }
 
-            this.pages = {
-                'home': _.create(HomePage)
-            };
+    function createPages() {
 
-            this.pages.home.init({
-                'windowData': this.windowData,
-                'mouseData': this.mouseData,
-                '$node': this.$root.find('.js-home')
-            });
-        },
+        pages = {
 
-        addEvents: function () {
+            home: Object.create( HomePage )
+        };
 
-            this.$window.on( 'resize', this.onResize );
-            this.$document.on( 'mousemove', this.onMouseMove );
-        },
+        console.log( pages.home );
+
+        pages.home.init({
+
+            'windowData': windowData,
+            'mouseData': mouseData,
+            'node': ui.root.find( '.js-home' )
+        });
+    }
+
+    function addEvents() {
+
+        ui.window.on( 'resize', onResize );
+        ui.document.on( 'mousemove', onMouseMove );
+    }
 
 
-        // HANDLERS -----------------------------------------------------
+    // Handlers
+    // --------
 
-        onResize: function () {
+    function onResize() {
 
-            this.windowData.width = this.$window.width();
-            this.windowData.height = this.$window.height();
-            this.windowData.ratio = this.windowData.width / this.windowData.height;
-            this.windowData.scale = this.windowData.width / this.BASE_WIDTH;
+        windowData.width = ui.window.width();
+        windowData.height = ui.window.height();
+        windowData.ratio = windowData.width / windowData.height;
+        windowData.scale = windowData.width / BASE_WIDTH;
 
-            this.$html[0].style.fontSize = 10 * this.windowData.scale + 'px';
+        ui.html[0].style.fontSize = 10 * windowData.scale + 'px';
 
-            this.pages.home.resize();
-        },
+        pages.home.resize();
+    }
 
-        onMouseMove: function (e) {
+    function onMouseMove(e) {
 
-            this.mouseData.x = e.clientX;
-            this.mouseData.y = e.clientY;
+        mouseData.x = e.clientX;
+        mouseData.y = e.clientY;
 
-            this.mouseData.nX = ( this.mouseData.x / this.windowData.width ) * 2 - 1;
-            this.mouseData.nY = ( this.mouseData.y / this.windowData.height ) * 2 - 1;
+        mouseData.nX = ( mouseData.x / windowData.width ) * 2 - 1;
+        mouseData.nY = ( mouseData.y / windowData.height ) * 2 - 1;
 
-            this.pages.home.mouseMove();
-        },
+        pages.home.mouseMove();
+    }
 
-        onAnimFrame: function (t) {
+    function onAnimFrame(t) {
 
-            var time = Date.now();
+        var time = Date.now();
 
-            this.pages.home.animFrame( time );
+        pages.home.animFrame( time );
 
-            window.requestAnimationFrame( this.onAnimFrame );
-        }
+        window.requestAnimationFrame( onAnimFrame );
+    }
 
-    };
-
-    main.start();
-
-});
+}

@@ -27,7 +27,8 @@ module.exports = (options) => {
                 }
             }),
             new HtmlWebpackPlugin({
-                template: './src/index.html'
+                template: './src/index.html',
+                inject: false
             }),
             new CopyWebpackPlugin([
                 { from: 'src/styles/critical.css', to: 'styles/critical.css' },

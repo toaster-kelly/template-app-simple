@@ -10,4 +10,5 @@ if ( !global._babelPolyfill ) { require('babel-polyfill'); }
 import '../styles/index.scss';
 
 // Entry point
-// require('./main.js');
+import main from './main';
+main();

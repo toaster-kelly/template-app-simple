@@ -1,59 +1,23 @@
-define([
+import _ from 'lodash';
+import $ from 'webpack-zepto';
+import BaseObject from '../common/baseObject';
 
-    'lodash',
-    'jquery',
-    'TweenMax',
-    '_animation',
-    '_baseObject',
+export default Object.assign( Object.create( BaseObject ), {
 
-    '../modules/_example'
+    setup: function () {
 
-], function(
+    },
 
-    _,
-    $,
-    TweenMax,
-    Animation,
-    BaseObject,
+    resize: function () {
 
-    ExampleChild
+    },
 
-) { 'use strict';
+    mouseMove: function () {
 
-    return _.assign( _.create( BaseObject ), {
+    },
 
+    onAnimFrame: function () {
 
-        $example     : null,
-        exampleChild : null,
-
-
-        setup: function () {
-
-            this.$example = this.$node.find('.js-example');
-
-            var config = {
-                'index': 0,
-                'awesome': true
-            };
-
-            this.exampleChild = this.createChild( ExampleChild, this.$example, config );
-        },
-
-        resize: function () {
-
-            this.exampleChild.resize();
-        },
-
-        mouseMove: function () {
-
-            this.exampleChild.mouseMove();
-        },
-
-        onAnimFrame: function () {
-
-            this.exampleChild.animFrame();
-        }
-
-    });
+    }
 
 });
