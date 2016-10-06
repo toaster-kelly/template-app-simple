@@ -1,6 +1,4 @@
-import _ from 'lodash';
-import $ from 'webpack-zepto';
-
+import { _, $ } from './common';
 import HomePage from './pages/home_page';
 
 export default function () {

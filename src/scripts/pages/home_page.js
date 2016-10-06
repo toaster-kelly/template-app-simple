@@ -1,8 +1,10 @@
-import _ from 'lodash';
-import $ from 'webpack-zepto';
-import BaseObject from '../common/baseObject';
+import { _, $, BaseObject } from '../common';
 
 export default Object.assign( Object.create( BaseObject ), {
+
+
+    //
+
 
     setup: function () {
 

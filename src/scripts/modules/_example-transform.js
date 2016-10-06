@@ -1,77 +1,62 @@
-define([
+import { _, $, BaseObject } from '../common';
 
-    'lodash',
-    'jquery',
-    'TweenMax',
-    '_animation',
-    '_baseObject'
+import TweenMax from 'gsap';
+import matrixMath from '../utils/matrix_math';
 
-], function(
-
-    _,
-    $,
-    TweenMax,
-    Animation,
-    BaseObject
-
-) { 'use strict';
-
-    return _.assign( _.create( BaseObject ), {
+export default Object.assign( Object.create( BaseObject ), {
 
 
-        active: false,
+    active: false,
 
 
-        setup: function (options) {
+    setup: function (options) {
 
-            this.activate();
-        },
+        this.activate();
+    },
 
-        activate: function () {
+    activate: function () {
 
-            if ( !this.active ) {
+        if ( this.active ) { return; }
+        this.active = true;
 
-                this.active = true;
-            }
-        },
+        //
+    },
 
-        deactivate: function () {
+    deactivate: function () {
 
-            if ( this.active ) {
+        if ( !this.active ) { return; }
+        this.active = false;
 
-                this.active = false;
-            }
-        },
+        //
+    },
 
-        resize: function () {
+    resize: function () {
 
-        },
+    },
 
-        mouseMove: function () {
+    mouseMove: function () {
 
-        },
+    },
 
-        onAnimFrame: function () {
+    onAnimFrame: function () {
 
-            if ( !this.active ) { return; }
+        if ( !this.active ) { return; }
 
-            this.draw();
-        },
+        this.draw();
+    },
 
-        draw: function () {
+    draw: function () {
 
-            var time = this.time;
+        var time = this.time;
 
-            var rotateZ = Math.sin( time * 0.00015 );
+        var rotateZ = Math.sin( time * 0.00015 );
 
-            var rotateZMatrix = Animation.getRotationZMatrix( rotateZ );
-            var resultMatrix = Animation.getResultMatrix([ rotateZMatrix ]);
+        var rotateZMatrix = matrixMath.getRotationZMatrix( rotateZ );
+        var resultMatrix = matrixMath.getResultMatrix([ rotateZMatrix ]);
 
-            var matrixString = Animation.getTransform3dString( resultMatrix );
+        var matrixString = matrixMath.getTransform3dString( resultMatrix );
 
-            this.applyCssTransform( this.$node, matrixString );
-        }
-
-    });
+        this.applyCssTransform( this.$node, matrixString );
+    }
 
 });

@@ -1,39 +1,25 @@
-define([
+import { _, $, BaseObject } from '../common';
 
-    'lodash',
-    'jquery',
-    '_baseObject'
-
-], function(
-
-    _,
-    $,
-    BaseObject
-
-) { 'use strict';
-
-    return _.assign( _.create( BaseObject ), {
+export default Object.assign( Object.create( BaseObject ), {
 
 
-        //
+    //
 
 
-        setup: function (options) {
+    setup: function () {
 
-        },
+    },
 
-        resize: function () {
+    resize: function () {
 
-        },
+    },
 
-        mouseMove: function () {
+    mouseMove: function () {
 
-        },
+    },
 
-        onAnimFrame: function () {
+    onAnimFrame: function () {
 
-        }
-
-    });
+    }
 
 });

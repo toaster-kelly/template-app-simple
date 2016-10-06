@@ -47,6 +47,10 @@ module.exports = (options) => {
                     presets: ['es2015']
                 }
             }]
+        },
+        // Fix for: Module not found: Error: Cannot resolve module 'fs'
+        node: {
+          fs: "empty"
         }
     };
 
