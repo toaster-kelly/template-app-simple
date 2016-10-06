@@ -1,77 +1,60 @@
-define([
+import { _, $, BaseObject } from '../common';
 
-    'lodash',
-    'jquery',
-    'TweenMax',
-    '_baseObject'
-
-], function(
-
-    _,
-    $,
-    TweenMax,
-    BaseObject
-
-) { 'use strict';
-
-    return _.assign( _.create( BaseObject ), {
+export default Object.assign( Object.create( BaseObject ), {
 
 
-        $canvas     : null,
-        canvas      : null,
-        ctx         : null,
+    canvas      : null,
+    ctx         : null,
 
-        pixelRatio  : 1,
+    pixelRatio  : 1,
 
-        invalidated : false,
+    invalidated : false,
 
 
-        setup: function () {
+    setup: function () {
 
-            this.canvas = document.createElement('canvas');
-            this.$canvas = $(this.canvas);
+        this.canvas = document.createElement('canvas');
+        this.ctx = this.canvas.getContext('2d');
 
-            this.$node.append( this.$canvas );
+        this.node.append( this.canvas );
 
-            this.ctx = this.canvas.getContext('2d');
+        this.resize();
+        this.invalidated = true;
+    },
 
-            this.resize();
-            this.invalidated = true;
-        },
+    resize: function () {
 
-        resize: function () {
+        this.pixelRatio = window.devicePixelRatio || 1;
 
-            this.pixelRatio = window.devicePixelRatio || 1;
+        this.canvas.width = this.windowData.width * this.pixelRatio;
+        this.canvas.height = this.windowData.height * this.pixelRatio;
 
-            this.canvas.width = this.windowData.width * this.pixelRatio;
-            this.canvas.height = this.windowData.height * this.pixelRatio;
+        this.canvas.style.width = this.windowData.width + 'px';
+        this.canvas.style.height = this.windowData.height + 'px';
 
-            this.canvas.style.width = this.windowData.width + 'px';
-            this.canvas.style.height = this.windowData.height + 'px';
-        },
+        this.ctx.scale( this.pixelRatio, this.pixelRatio );
+    },
 
-        mouseMove: function () {
+    mouseMove: function () {
 
-        },
+    },
 
-        onAnimFrame: function () {
+    onAnimFrame: function () {
 
-            this.draw();
-        },
+        this.draw();
+    },
 
-        draw: function () {
+    draw: function () {
 
-            if ( !this.invalidated ) { return; }
+        if ( !this.invalidated ) { return; }
 
-            this.ctx.fillStyle = "rgb(12, 227, 185)";
-            this.ctx.fillRect(
-                this.mouseData.x - 5,
-                this.mouseData.y - 5,
-                10,
-                10
-            );
-        }
-
-    });
+        this.ctx.fillStyle = "rgb(12, 227, 185)";
+        this.ctx.fillRect(
+            this.mouseData.x - 5,
+            this.mouseData.y - 5,
+            10,
+            10
+        );
+    }
 
 });

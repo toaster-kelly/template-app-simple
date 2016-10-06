@@ -1,7 +1,7 @@
 import { _, $, BaseObject } from '../common';
 
 import TweenMax from 'gsap';
-import matrixMath from '../utils/matrix_math';
+import matrixMath from '../utils/animation/matrix_math';
 
 export default Object.assign( Object.create( BaseObject ), {
 
