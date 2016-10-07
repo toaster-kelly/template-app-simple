@@ -5,14 +5,14 @@ import * as THREE from 'three';
 export default Object.assign( Object.create( BaseObject ), {
 
 
-    renderer    : null,
-    scene       : null,
-    camera      : null,
+    renderer: null,
+    scene: null,
+    camera: null,
 
-    origin      : null,
+    origin: null,
 
-    material    : null,
-    mesh        : null,
+    material: null,
+    mesh: null,
 
 
     setup: function () {
@@ -38,11 +38,11 @@ export default Object.assign( Object.create( BaseObject ), {
 
         this.material = new THREE.MeshBasicMaterial(
         {
-            'color': 0x00ff00,
+            'color': 0x00ffff,
             'wireframe': true
         });
 
-        this.mesh = new THREE.Mesh( new THREE.SphereGeometry( 5, 32, 32 ), this.material );
+        this.mesh = new THREE.Mesh( new THREE.SphereGeometry( 10, 32, 32 ), this.material );
 
         this.origin = new THREE.Object3D();
 
