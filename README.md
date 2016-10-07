@@ -1,54 +1,42 @@
-#Simple and frameworkless visual development template
+#Simple frameworkless ES6 visual development template
+
+__The goal__: To have a dead simple app template to use for visual development prototypes. Pull a copy, start webpack, and start writing code. Not necessarily intended for production use. 
+
+---
 
 ## Features
-- Frameworkless, only `jQuery` and `lodash` as required dependencies
-- Prototypal inheritance
+- Frameworkless but with `zepto` and `lodash` as required library dependencies
+- ES6 transpiling with Babel
+- Simple webpack build setup ( _Setup adapted from [wbkd](https://github.com/wbkd/yet-another-webpack-es6-starterkit)'s great setup._ )
+- Simple prototypal inheritance
 - Base object for common variables, trickling, and hierarchy management
-- Simple build and live-reload setup using `webpack` and `webpack-dev-server`
 - Basic SCSS scaffold, including normalize and critical CSS
 - Example modules for new children, matrix transforms, THREE.js, full-page shaders (THREE.js), and 2D canvas.
+
+---
 
 ## Install and usage
 
 Ensure you've got [node/npm](https://nodejs.org/en/) installed.
 
 ####1.
-Install `webpack` and `webpack-dev-server` globally
-`npm install webpack -g`
-`npm install webpack-dev-server -g`
+```
+npm install
+```
 
-####2.
-Run `npm install` 
+####2. 
+```
+npm run dev
+```
 
-####3. 
-Run `webpack-dev-server --progress --colors`
+####3.
+When ready for production
+```
+npm run build
+```
+Then you can put the `/dist` directory where you need it
 
-####4.
-Go to `http://localhost:8080/webpack-dev-server/app/` in your browser
+---
 
-### Serving inline:
-You may want to serve the app inline, without the `webpack-dev-server` app frame (e.g. to see url changes correctly). You can do this by adding the `--inline` flag.
-
-Run `webpack-dev-server --progress --colors --inline`
-
-Go to `http://localhost:8080/app/` in your browser
-
-### Serving on network:
-You may want to serve the app so that it can be accessed at your local network IP (e.g. for device testing). Use the `--host` flag and your local network IP address:
-
-Run `webpack-dev-server --progress --colors --inline --host 192.168.X.XXX`
-
-Go to `http://192.168.X.XXX:8080/app/` on your own browser or other devices 
-
-
-###To create a minified bundle:
-Run `webpack -p --config ./webpack.production.config.js`, which will create bundle.min.js alongside the normal bundle.js file. 
-
-##NOTES:
-- The animation frame calls can sometimes throw console errors during hot reloading, but it's nothing to worry about.
-- In the webpack reporting you'll see a warning "the request of a dependency is an expression", which comes up every build. This is due to module style Sylvester is written in. There should be a way around this with webpack aliasing or loaders, but I haven't figured it out yet.
-
-##Features to add:
-- Improve build system to output minified `/dist` folder as a sibling to the main `app` folder. 
-- Add wepback Dashboard! https://github.com/FormidableLabs/webpack-dashboard
-- Replace jQuery for Zepto, add easy way to exclude altogether if not required
+## Notes
+- When using sylvester to do matrix math webpack throws some warning messages: `the request of a dependency is an expression`. This appears to caused by the module structure `node-sylvester` is written in. It doesn't prevent things from working, but it's likely leading to bigger bundle sizes. To be investigated...
