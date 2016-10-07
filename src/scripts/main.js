@@ -58,8 +58,6 @@ export default function () {
             home: Object.create( HomePage )
         };
 
-        console.log( pages.home );
-
         pages.home.init({
 
             'windowData': windowData,

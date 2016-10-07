@@ -1,33 +1,31 @@
 import { _, $, BaseObject } from '../common';
 
-import example from '../modules/_example-three';
+import example from '../modules/_example';
 
 export default Object.assign( Object.create( BaseObject ), {
 
 
-    //
-
-    test: null,
+    example: null,
 
 
     setup: function () {
 
-        this.test = this.createChild( example, $('.js-example') );
+        this.example = this.createChild( example, $('.js-example') );
     },
 
     resize: function () {
 
-        this.test.resize();
+        this.example.resize();
     },
 
     mouseMove: function () {
 
-        this.test.mouseMove();
+        this.example.mouseMove();
     },
 
     onAnimFrame: function () {
 
-        this.test.animFrame( this.time );
+        this.example.animFrame( this.time );
     }
 
 });
