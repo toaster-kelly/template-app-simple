@@ -48,7 +48,7 @@ export default function () {
         onResize();
 
         // Start anim frame
-        _.defer( function () { window.requestAnimationFrame( onAnimFrame ); }.bind( this ) );
+        _.defer( function () { window.requestAnimationFrame( onAnimFrame ); } );
     }
 
     function createPages() {
