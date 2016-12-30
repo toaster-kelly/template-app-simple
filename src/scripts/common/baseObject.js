@@ -4,6 +4,7 @@ import $ from 'webpack-zepto';
 export default {
 
 
+    // appConfig: null,
     windowData: null,
     mouseData: null,
 
@@ -14,6 +15,7 @@ export default {
 
     init: function ( options ) {
 
+        // this.appConfig = options.appConfig;
         this.windowData = options.windowData;
         this.mouseData = options.mouseData;
 
@@ -30,6 +32,7 @@ export default {
 
         child.init({
 
+            // 'appConfig': this.appConfig,
             'windowData': this.windowData,
             'mouseData': this.mouseData,
             'node': node,
