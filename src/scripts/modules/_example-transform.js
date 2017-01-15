@@ -9,12 +9,12 @@ export default Object.assign( Object.create( BaseObject ), {
     active: false,
 
 
-    setup: function (options) {
+    setup(options) {
 
         this.activate();
     },
 
-    activate: function () {
+    activate() {
 
         if ( this.active ) { return; }
         this.active = true;
@@ -22,7 +22,7 @@ export default Object.assign( Object.create( BaseObject ), {
         //
     },
 
-    deactivate: function () {
+    deactivate() {
 
         if ( !this.active ) { return; }
         this.active = false;
@@ -30,31 +30,31 @@ export default Object.assign( Object.create( BaseObject ), {
         //
     },
 
-    resize: function () {
+    resize() {
 
     },
 
-    mouseMove: function () {
+    mouseMove() {
 
     },
 
-    onAnimFrame: function () {
+    onAnimFrame() {
 
         if ( !this.active ) { return; }
 
         this.draw();
     },
 
-    draw: function () {
+    draw() {
 
-        var time = this.time;
+        let time = this.time;
 
-        var rotateZ = Math.sin( time * 0.00015 );
+        let rotateZ = Math.sin( time * 0.00015 );
 
-        var rotateZMatrix = matrixMath.getRotationZMatrix( rotateZ );
-        var resultMatrix = matrixMath.getResultMatrix([ rotateZMatrix ]);
+        let rotateZMatrix = matrixMath.getRotationZMatrix( rotateZ );
+        let resultMatrix = matrixMath.getResultMatrix([ rotateZMatrix ]);
 
-        var matrixString = matrixMath.getTransform3dString( resultMatrix );
+        let matrixString = matrixMath.getTransform3dString( resultMatrix );
 
         this.applyCssTransform( this.$node, matrixString );
     }

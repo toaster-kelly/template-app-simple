@@ -15,7 +15,7 @@ export default Object.assign( Object.create( BaseObject ), {
     mesh: null,
 
 
-    setup: function () {
+    setup() {
 
         this.renderer = new THREE.WebGLRenderer({ antialias: true });
         this.renderer.setSize( this.windowData.width, this.windowData.height );
@@ -34,7 +34,7 @@ export default Object.assign( Object.create( BaseObject ), {
         this.render();
     },
 
-    setupActors: function () {
+    setupActors() {
 
         this.material = new THREE.MeshBasicMaterial(
         {
@@ -50,7 +50,7 @@ export default Object.assign( Object.create( BaseObject ), {
         this.scene.add( this.origin );
     },
 
-    resize: function () {
+    resize() {
 
         this.camera.aspect = this.windowData.ratio;
         this.camera.updateProjectionMatrix();
@@ -59,16 +59,16 @@ export default Object.assign( Object.create( BaseObject ), {
         this.renderer.setSize( this.windowData.width, this.windowData.height );
     },
 
-    mouseMove: function () {
+    mouseMove() {
 
     },
 
-    onAnimFrame: function () {
+    onAnimFrame() {
 
         this.render();
     },
 
-    render: function () {
+    render() {
 
         this.renderer.render( this.scene, this.camera );
     }

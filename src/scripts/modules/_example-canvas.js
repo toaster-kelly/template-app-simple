@@ -11,7 +11,7 @@ export default Object.assign( Object.create( BaseObject ), {
     invalidated : false,
 
 
-    setup: function () {
+    setup() {
 
         this.canvas = document.createElement('canvas');
         this.ctx = this.canvas.getContext('2d');
@@ -22,7 +22,7 @@ export default Object.assign( Object.create( BaseObject ), {
         this.invalidated = true;
     },
 
-    resize: function () {
+    resize() {
 
         this.pixelRatio = window.devicePixelRatio || 1;
 
@@ -35,16 +35,16 @@ export default Object.assign( Object.create( BaseObject ), {
         this.ctx.scale( this.pixelRatio, this.pixelRatio );
     },
 
-    mouseMove: function () {
+    mouseMove() {
 
     },
 
-    onAnimFrame: function () {
+    onAnimFrame() {
 
         this.draw();
     },
 
-    draw: function () {
+    draw() {
 
         if ( !this.invalidated ) { return; }
 

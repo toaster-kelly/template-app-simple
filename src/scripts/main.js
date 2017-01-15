@@ -101,7 +101,7 @@ export default function () {
 
     function onAnimFrame(t) {
 
-        var time = Date.now();
+        const time = Date.now();
 
         pages.home.animFrame( time );
 

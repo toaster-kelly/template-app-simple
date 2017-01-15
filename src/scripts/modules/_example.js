@@ -6,19 +6,19 @@ export default Object.assign( Object.create( BaseObject ), {
     //
 
 
-    setup: function () {
+    setup() {
 
     },
 
-    resize: function () {
+    resize() {
 
     },
 
-    mouseMove: function () {
+    mouseMove() {
 
     },
 
-    onAnimFrame: function () {
+    onAnimFrame() {
 
     }
 

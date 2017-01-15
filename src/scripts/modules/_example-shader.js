@@ -18,7 +18,7 @@ export default Object.assign( Object.create( BaseObject ), {
     mesh: null,
 
 
-    setup: function () {
+    setup() {
 
         this.renderer = new THREE.WebGLRenderer({ antialias: true });
         this.renderer.setSize( this.windowData.width, this.windowData.height );
@@ -39,7 +39,7 @@ export default Object.assign( Object.create( BaseObject ), {
         this.render();
     },
 
-    setupShader: function () {
+    setupShader() {
 
         this.uniforms = {
             time: { type: 'f', value: 1.0 },
@@ -58,7 +58,7 @@ export default Object.assign( Object.create( BaseObject ), {
         this.scene.add( this.mesh );
     },
 
-    resize: function () {
+    resize() {
 
         this.uniforms.resolution.value = new THREE.Vector2( this.windowData.width, this.windowData.height );
 
@@ -69,16 +69,16 @@ export default Object.assign( Object.create( BaseObject ), {
         this.renderer.setSize( this.windowData.width, this.windowData.height );
     },
 
-    mouseMove: function () {
+    mouseMove() {
 
     },
 
-    onAnimFrame: function () {
+    onAnimFrame() {
 
         this.render();
     },
 
-    render: function () {
+    render() {
 
         this.uniforms.time.value = this.time;
 

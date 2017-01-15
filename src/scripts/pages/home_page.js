@@ -8,22 +8,22 @@ export default Object.assign( Object.create( BaseObject ), {
     example: null,
 
 
-    setup: function () {
+    setup() {
 
         this.example = this.createChild( example, $('.js-example') );
     },
 
-    resize: function () {
+    resize() {
 
         this.example.resize();
     },
 
-    mouseMove: function () {
+    mouseMove() {
 
         this.example.mouseMove();
     },
 
-    onAnimFrame: function () {
+    onAnimFrame() {
 
         this.example.animFrame( this.time );
     }

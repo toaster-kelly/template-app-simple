@@ -1,6 +1,4 @@
-'use strict';
-
-var AnimationFrame = require('animation-frame');
+let AnimationFrame = require('animation-frame');
 AnimationFrame.shim();
 
 if ( module.hot ) { module.hot.accept(); }

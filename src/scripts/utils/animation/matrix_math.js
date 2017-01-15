@@ -2,12 +2,12 @@ import Sylvester from 'sylvester';
 
 export default {
 
-    degToRad: function (degrees) {
+    degToRad(degrees) {
 
         return degrees * ( Math.PI / 180 );
     },
 
-    getRotationXMatrix: function (rotateX) {
+    getRotationXMatrix(rotateX) {
 
         return Sylvester.Matrix.create([
             [1,0,0,0],
@@ -17,7 +17,7 @@ export default {
         ]);
     },
 
-    getRotationYMatrix: function (rotateY) {
+    getRotationYMatrix(rotateY) {
 
         return Sylvester.Matrix.create([
             [Math.cos(this.degToRad(rotateY)),0,Math.sin(this.degToRad(rotateY)),0],
@@ -27,7 +27,7 @@ export default {
         ]);
     },
 
-    getRotationZMatrix: function (rotateZ) {
+    getRotationZMatrix(rotateZ) {
 
         return Sylvester.Matrix.create([
             [Math.cos(this.degToRad(rotateZ)),Math.sin(this.degToRad(rotateZ * -1)),0,0],
@@ -37,7 +37,7 @@ export default {
         ]);
     },
 
-    getScaleMatrix: function (scaleX, scaleY, scaleZ) {
+    getScaleMatrix(scaleX, scaleY, scaleZ) {
 
         scaleX = scaleX === undefined ? 1 : scaleX;
         scaleY = scaleY === undefined ? 1 : scaleY;
@@ -51,7 +51,7 @@ export default {
         ]);
     },
 
-    getTranslationMatrix: function (translationX, translationY, translationZ) {
+    getTranslationMatrix(translationX, translationY, translationZ) {
 
         translationX = translationX === undefined ? 0 : translationX;
         translationY = translationY === undefined ? 0 : translationY;
@@ -65,7 +65,7 @@ export default {
         ]);
     },
 
-    getResultMatrix: function (matrixArray) {
+    getResultMatrix(matrixArray) {
 
         if ( matrixArray.length === 1 ) {
 
@@ -73,14 +73,14 @@ export default {
         }
         else {
 
-            var resultMatrix = Sylvester.Matrix.create([
+            let resultMatrix = Sylvester.Matrix.create([
                 [1,0,0,0],
                 [0,1,0,0],
                 [0,0,1,0],
                 [0,0,0,1]
             ]);
 
-            for ( var i = 0; i < matrixArray.length; i++ ) {
+            for ( let i = 0; i < matrixArray.length; i++ ) {
 
                 resultMatrix = matrixArray[i].x(resultMatrix);
             }
@@ -89,9 +89,9 @@ export default {
         }
     },
 
-    getTransform3dString: function (matrix) {
+    getTransform3dString(matrix) {
 
-        var transformString = "matrix3d(";
+        let transformString = "matrix3d(";
 
         transformString += matrix.e(1,1).toFixed(5) + "," + matrix.e(1,2).toFixed(5) + "," + matrix.e(1,3) + "," + matrix.e(1,4).toFixed(5) + ",";
         transformString += matrix.e(2,1).toFixed(5) + "," + matrix.e(2,2).toFixed(5) + "," + matrix.e(2,3) + "," + matrix.e(2,4).toFixed(5) + ",";

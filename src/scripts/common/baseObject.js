@@ -13,7 +13,7 @@ export default {
     node: null,
 
 
-    init: function ( options ) {
+    init(options) {
 
         // this.appConfig = options.appConfig;
         this.windowData = options.windowData;
@@ -24,11 +24,11 @@ export default {
         this.setup( options );
     },
 
-    setup: function ( options ) {},
+    setup(options) {},
 
-    createChild: function ( childObject, node = null, options = {} ) {
+    createChild( childObject, node = null, options = {} ) {
 
-        var child = Object.create( childObject );
+        let child = Object.create( childObject );
 
         child.init({
 
@@ -42,20 +42,20 @@ export default {
         return child;
     },
 
-    resize: function () {},
+    resize() {},
 
-    mouseMove: function () {},
+    mouseMove() {},
 
-    animFrame: function (t, options) {
+    animFrame(t, options) {
 
         this.time = t;
 
         this.onAnimFrame(options);
     },
 
-    onAnimFrame: function () {},
+    onAnimFrame() {},
 
-    applyCssTransform: function (element, transformString) {
+    applyCssTransform(element, transformString) {
 
         element.style.mozTransform = transformString;
         element.style.webkitTransform = transformString;
