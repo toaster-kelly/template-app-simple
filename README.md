@@ -7,7 +7,7 @@ __The goal__: To have a dead simple app template to use for visual development p
 ## Features
 - Frameworkless but with `zepto` and `lodash` as required library dependencies
 - ES6 transpiling with Babel
-- Simple webpack build setup ( _Setup adapted from [wbkd](https://github.com/wbkd/yet-another-webpack-es6-starterkit)'s great setup._ )
+- Simple webpack build setup ( _adapted from [wbkd](https://github.com/wbkd/yet-another-webpack-es6-starterkit)'s great setup._ )
 - Simple prototypal inheritance
 - Base object for common variables, trickling, and hierarchy management
 - Basic SCSS scaffold, including normalize and critical CSS
