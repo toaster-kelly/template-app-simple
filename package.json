@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "build": "webpack --config webpack-prod.config.js --colors",
-    "dev": "webpack-dev-server --config webpack-dev.config.js --watch --colors"
+    "dev": "webpack-dev-server --config webpack-dev.config.js --watch --colors",
+    "host": "webpack-dev-server --config webpack-dev.config.js --watch --colors --host"
   },
   "eslintConfig": {
     "env": {
